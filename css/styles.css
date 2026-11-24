@@ -1,126 +1,751 @@
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Light.woff2") format("woff2");font-weight:300;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-XBold.woff2") format("woff2");font-weight:800 900;font-display:swap}
-:root{--red:#CC092F;--red-accent:#D12244;--ink:#242329;--muted:#77747a;--soft:#f4f3f2;--line:#e8e5e4;--font:"Bradesco Sans",Arial,sans-serif;--container:1160px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{margin:0;color:var(--ink);font-family:var(--font);line-height:1.6}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-.container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
-.skip-link{position:absolute;top:-60px;left:16px;background:#fff;padding:10px;z-index:99}
-.skip-link:focus{top:10px}
+/* =========================================================
+   IMPULSO · BRADESCO MÉXICO
+   Hoja de estilos principal
+   Estructura: base → componentes → secciones → responsive
+   ========================================================= */
 
-/* Hero institucional por capas */
-.hero{height:100svh;min-height:620px;max-height:860px;position:relative;overflow:hidden;background:#f5f4f4;isolation:isolate}
-.hero-red-panel{position:absolute;z-index:0;inset:0 0 29%;background:var(--red)}
-.hero-lower-panel{position:absolute;z-index:0;inset:71% 0 0;background:linear-gradient(180deg,#d5d5d5 0%,#ededed 55%,#fff 100%);overflow:hidden}
-.hero-header-image{position:absolute;z-index:2;height:96%;width:68%;right:0;top:2%;object-fit:contain;object-position:right center;filter:drop-shadow(0 10px 22px rgba(25,12,18,.10));pointer-events:none}
-.hero-copy{position:absolute;z-index:3;left:max(calc((100vw - 1330px)/2),6.7vw);top:18%;width:min(400px,35vw);color:#fff}
-.impulso-logo{width:clamp(230px,25vw,350px);height:auto;object-fit:contain;object-position:left center;filter:drop-shadow(0 5px 14px rgba(70,0,15,.12))}
-.hero-copy h1{font:400 clamp(19px,1.7vw,24px)/1.38 var(--font);letter-spacing:-.02em;margin:26px 0 0;padding:0;max-width:370px;color:rgba(255,255,255,.96);border:0}
-.hero-cta{position:absolute;z-index:4;left:max(calc((100vw - 1330px)/2),6.7vw);bottom:7.5%;display:inline-flex;align-items:center;justify-content:center;gap:28px;padding:16px 22px;min-width:184px;background:#fff;color:var(--red);border:1px solid #e5e1e1;border-radius:0;font:700 13px/1 var(--font);box-shadow:0 8px 18px rgba(35,20,24,.13),0 2px 5px rgba(35,20,24,.07);transition:transform .22s ease,box-shadow .22s ease}
-.hero-cta:hover,.hero-cta:focus-visible{color:var(--red);transform:translateY(-3px);box-shadow:0 0 18px 5px rgba(255,255,255,.82),0 10px 22px rgba(35,20,24,.12)}
-.hero-cta:focus-visible{outline:2px solid var(--red);outline-offset:4px}
-.section-space{padding-block:110px}
-.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--red-accent);margin:0 0 24px}
-.eyebrow.light{color:rgba(255,255,255,.72)}
-h2,h3,p{margin-top:0}
-h2{font:700 clamp(38px,5vw,62px)/1.03 var(--font);letter-spacing:-.065em}
-h2 em{font-style:normal;color:var(--red-accent)}
-.intro-grid,.section-heading{display:grid;grid-template-columns:1fr 1fr;gap:70px}
-.intro-grid h2,.section-heading h2,.goals-section h2{margin:0}
-.intro-copy{max-width:510px;padding-top:24px;color:var(--muted);font-size:15px}
-.lead{font-size:21px;line-height:1.45;color:var(--ink);font-weight:500}
-.updates-section{background:var(--soft)}
-.section-heading{align-items:end;margin-bottom:54px}
-.section-aside{max-width:360px;color:var(--muted);font-size:14px;margin:0 0 5px}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.stat-card{background:#fff;padding:28px;min-height:220px;position:relative}
-.stat-index{font-size:10px;color:var(--red-accent);letter-spacing:1px}
-.stat-card strong{display:block;font:700 42px var(--font);margin:18px 0 8px}
-.stat-card h3,.project-info h3{font:700 18px var(--font);margin-bottom:8px}
-.stat-card p,.project-info p{font-size:13px;color:var(--muted);margin:0}
-.content-note{font-size:11px;color:#85838a;margin:18px 0 0}
-.project-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
-.project-card{border:1px solid var(--line)}
-.project-visual{height:260px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
-.project-visual span{font-size:11px}
-.project-visual b{font:800 clamp(24px,3vw,38px)/.98 var(--font);letter-spacing:-2px}
-.visual-red{background:var(--red)}
-.visual-soft{background:#e8dfe0;color:var(--red)}
-.project-info{padding:26px}
-.tag{font-size:10px;color:var(--red-accent);text-transform:uppercase;letter-spacing:1px;font-weight:700}
-.project-info h3{margin:10px 0}
-.text-link{display:inline-flex;gap:18px;color:var(--red-accent);font-size:12px;font-weight:700;margin-top:22px}
-.values-section{background:#242329;color:#fff}
-.values-layout{display:grid;grid-template-columns:1fr 1fr;gap:90px}
-.values-layout h2{font-size:clamp(42px,5vw,64px);margin-bottom:26px}
-.values-layout h2 em{color:#f27a91}
-.values-lead{max-width:360px;color:#bcbac1;font-size:15px}
-.values-list article{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:21px 0;border-bottom:1px solid #45434b}
-.values-list article:first-child{border-top:1px solid #45434b}
-.values-list article>span{color:#f27a91;font-size:11px}
-.values-list h3{font:700 18px var(--font);margin:0 0 5px}
-.values-list p{font-size:13px;color:#bcbac1;margin:0}
-.goals-inner{position:relative}
-.goals-section h2{font-size:clamp(54px,7vw,86px);margin-bottom:22px}
-.goals-section h2 em{color:var(--red-accent)}
-.goals-section .lead{max-width:430px;color:var(--muted);margin-bottom:28px}
-.button{display:inline-flex;align-items:center;gap:30px;padding:15px 20px;font-size:13px;font-weight:700;transition:transform .2s,background .2s}
-.button:hover{transform:translateY(-2px)}
-.button-red{background:var(--red);color:#fff}
-.site-footer{background:#f4f2f1;padding:42px 0 20px}
-.footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:38px}
-.footer-logo{width:190px;height:auto}
-.footer-top p{font:600 16px/1.4 var(--font);margin:0}
-.back-top{font-size:12px;font-weight:700;color:var(--red-accent)}
-.footer-bottom{border-top:1px solid #dedad9;padding-top:18px;display:flex;justify-content:space-between;color:#85838a;font-size:10px}
-.js-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-.js-reveal.is-visible{opacity:1;transform:translateY(0)}
-.js-sweep{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.77,0,.18,1)}
-.js-sweep.is-visible{clip-path:inset(0 0 0 0)}
-@media(max-width:1100px) and (min-width:761px){
- .hero-copy{left:5%;top:17%;width:38vw}
- .impulso-logo{width:clamp(220px,25vw,300px)}
- .hero-copy h1{font-size:clamp(18px,1.8vw,22px);max-width:330px}
- .hero-header-image{width:68%;height:96%;right:0;top:2%;object-fit:contain;object-position:right center}
-}
-@media(max-width:760px){
- .hero{height:100svh;min-height:680px;max-height:900px}
- .hero-red-panel{inset:0 0 25%}
- .hero-lower-panel{inset:75% 0 0}
- .hero-copy{left:7%;top:7%;width:86%}
- .impulso-logo{width:clamp(220px,62vw,300px)}
- .hero-copy h1{font-size:18px;line-height:1.32;margin-top:16px;max-width:340px}
- .hero-cta{left:7%;bottom:5%;padding:14px 18px;min-width:164px;font-size:12px}
- .hero-header-image{width:108%;height:60%;max-width:none;right:-15%;top:40%;object-fit:contain;object-position:center bottom}
- .section-space{padding-block:76px}
- .container{width:calc(100% - 36px)}
- .intro-grid,.section-heading,.values-layout{grid-template-columns:1fr;gap:22px}
- .intro-copy{padding-top:0}
- .section-heading{margin-bottom:34px}
- .section-aside{max-width:500px}
- .stats-grid{grid-template-columns:1fr;gap:10px}
- .stat-card{min-height:180px}
- .project-grid{grid-template-columns:1fr}
- .project-visual{height:220px}
- .values-layout{gap:42px}
- .footer-top{align-items:flex-start;gap:22px;flex-wrap:wrap}
- .footer-top p{order:3;width:100%}
- .footer-bottom{gap:12px;flex-direction:column}
-}
-@media(max-width:390px){
- .hero-copy h1{font-size:16px}
- .hero-header-image{height:57%;width:112%;right:-20%;top:43%}
-}
-@media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}
- *,*::before,*::after{transition:none!important}
- .js-reveal{opacity:1;transform:none;transition:none}
- .js-sweep{clip-path:none;transition:none}
+/* 01. Fuentes */
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradesco Sans";
+  src: url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-XBold.woff2") format("woff2");
+  font-weight: 800 900;
+  font-display: swap;
+}
+
+/* 02. Variables de diseño */
+:root {
+  --red: #CC092F;
+  --red-dark: #A80728;
+  --red-light: #E64B68;
+  --ink: #252329;
+  --muted: #77747B;
+  --paper: #F7F6F5;
+  --white: #FFFFFF;
+  --line: #E8E5E4;
+  --font: "Bradesco Sans", Arial, sans-serif;
+  --container: 1160px;
+  --gutter: clamp(22px, 5vw, 76px);
+  --section-space: clamp(76px, 9vw, 124px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* 03. Base y elementos globales */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: var(--font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: var(--section-space);
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 100;
+  top: -60px;
+  left: 16px;
+  padding: 10px 14px;
+  color: var(--red);
+  background: var(--white);
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* 04. Hero
+   Una sola composición continua: fondo rojo, imagen integrada
+   y una transición inferior suave hacia el contenido. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: min(850px, 100svh);
+  height: 100svh;
+  max-height: 960px;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 76% 34%, rgba(255, 255, 255, .12), transparent 34%),
+    radial-gradient(ellipse at 8% 100%, rgba(80, 0, 20, .2), transparent 48%),
+    linear-gradient(118deg, #B9072B 0%, var(--red) 48%, #D51C43 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(92, 0, 21, .16), transparent 60%);
+}
+
+.hero-red-panel,
+.hero-lower-panel {
+  display: none;
+}
+
+.hero-header-image {
+  position: absolute;
+  z-index: 2;
+  right: -1.5%;
+  bottom: 0;
+  width: min(73%, 1050px);
+  height: 96%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 24px 34px rgba(55, 0, 16, .16));
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  width: min(440px, 39%);
+  margin-left: max(calc((100vw - 1330px) / 2), var(--gutter));
+  padding-block: 30px 72px;
+}
+
+.impulso-logo {
+  width: clamp(250px, 27vw, 370px);
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 4px 14px rgba(70, 0, 15, .12));
+}
+
+.hero-copy h1 {
+  max-width: 390px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, .94);
+  font: 400 clamp(19px, 1.65vw, 23px) / 1.42 var(--font);
+  letter-spacing: -.025em;
+}
+
+.hero-cta {
+  position: absolute;
+  z-index: 4;
+  left: max(calc((100vw - 1330px) / 2), var(--gutter));
+  bottom: clamp(34px, 6.5vh, 66px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  min-width: 190px;
+  padding: 16px 19px;
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 0;
+  color: var(--red);
+  background: var(--white);
+  box-shadow: 0 8px 22px rgba(60, 0, 18, .12);
+  font: 700 13px / 1 var(--font);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 28px rgba(60, 0, 18, .2);
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 5px;
+}
+
+/* 05. Estilos compartidos de títulos y textos */
+.eyebrow {
+  margin-bottom: 22px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.eyebrow.light {
+  color: rgba(255, 255, 255, .68);
+}
+
+h2 {
+  margin-bottom: 0;
+  font: 700 clamp(38px, 5vw, 64px) / 1.04 var(--font);
+  letter-spacing: -.065em;
+}
+
+h2 em {
+  color: var(--red);
+  font-style: normal;
+}
+
+.lead {
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.48;
+}
+
+/* 06. Cultura */
+.intro-section {
+  background: var(--white);
+}
+
+.intro-grid,
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(38px, 7vw, 90px);
+}
+
+.intro-copy {
+  max-width: 520px;
+  padding-top: 24px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.intro-copy .lead {
+  margin-bottom: 18px;
+}
+
+/* 07. Avances */
+.updates-section {
+  background: var(--paper);
+}
+
+.section-heading {
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.section-aside {
+  max-width: 370px;
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  position: relative;
+  min-height: 225px;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid rgba(30, 20, 24, .04);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(35, 20, 24, .07);
+}
+
+.stat-index {
+  color: var(--red);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.stat-card strong {
+  display: block;
+  margin: 18px 0 8px;
+  color: var(--red);
+  font: 700 42px / 1 var(--font);
+}
+
+.stat-card h3,
+.project-info h3 {
+  margin-bottom: 8px;
+  font: 700 18px / 1.25 var(--font);
+}
+
+.stat-card p,
+.project-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.content-note {
+  margin: 18px 0 0;
+  color: #85838A;
+  font-size: 11px;
+}
+
+/* 08. Proyectos */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.project-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 270px;
+  padding: 25px;
+  color: var(--white);
+}
+
+.project-visual span {
+  font-size: 11px;
+}
+
+.project-visual b {
+  font: 800 clamp(25px, 3vw, 40px) / .98 var(--font);
+  letter-spacing: -.055em;
+}
+
+.visual-red {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, .16), transparent 30%),
+    linear-gradient(135deg, #B8072B, var(--red) 65%, #D92A4D);
+}
+
+.visual-soft {
+  color: var(--red);
+  background: linear-gradient(135deg, #F1E9EA, #E6DADD);
+}
+
+.project-info {
+  padding: 27px;
+}
+
+.tag {
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.project-info h3 {
+  margin: 10px 0;
+}
+
+.text-link {
+  display: inline-flex;
+  gap: 18px;
+  margin-top: 22px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.text-link span {
+  transition: transform .2s ease;
+}
+
+.text-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* 09. Valores */
+.values-section {
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(204, 9, 47, .2), transparent 38%),
+    #252329;
+}
+
+.values-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(50px, 9vw, 120px);
+}
+
+.values-layout h2 {
+  margin-bottom: 26px;
+  font-size: clamp(42px, 5vw, 66px);
+}
+
+.values-layout h2 em {
+  color: #F27A91;
+}
+
+.values-lead {
+  max-width: 370px;
+  color: #BCBAC1;
+  font-size: 15px;
+}
+
+.values-list article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid #45434B;
+}
+
+.values-list article:first-child {
+  border-top: 1px solid #45434B;
+}
+
+.values-list article > span {
+  color: #F27A91;
+  font-size: 11px;
+}
+
+.values-list h3 {
+  margin: 0 0 5px;
+  font: 700 18px / 1.3 var(--font);
+}
+
+.values-list p {
+  margin: 0;
+  color: #BCBAC1;
+  font-size: 13px;
+}
+
+/* 10. Metas y llamado a la acción */
+.goals-inner {
+  position: relative;
+}
+
+.goals-section h2 {
+  margin-bottom: 22px;
+  font-size: clamp(54px, 7vw, 88px);
+}
+
+.goals-section .lead {
+  max-width: 440px;
+  margin-bottom: 30px;
+  color: var(--muted);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+  padding: 15px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-red {
+  color: var(--white);
+  background: var(--red);
+}
+
+.button-red:hover {
+  background: var(--red-dark);
+}
+
+/* 11. Pie de página */
+.site-footer {
+  padding: 42px 0 20px;
+  background: var(--paper);
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 38px;
+}
+
+.footer-logo {
+  width: 190px;
+  height: auto;
+}
+
+.footer-top p {
+  margin: 0;
+  font: 600 16px / 1.4 var(--font);
+}
+
+.back-top {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid #DEDAD9;
+  color: #85838A;
+  font-size: 10px;
+}
+
+/* 12. Animaciones de entrada (activadas desde main.js) */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s var(--ease);
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-sweep {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.77, 0, .18, 1);
+}
+
+.js-sweep.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* 13. Tablet */
+@media (max-width: 1100px) {
+  .hero-copy {
+    width: 42%;
+    margin-left: 5%;
+  }
+
+  .hero-header-image {
+    right: -5%;
+    width: 76%;
+  }
+
+  .impulso-logo {
+    width: clamp(230px, 28vw, 320px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(18px, 2vw, 22px);
+  }
+}
+
+/* 14. Móvil */
+@media (max-width: 760px) {
+  :root {
+    --gutter: 22px;
+    --section-space: 76px;
+  }
+
+  .hero {
+    display: block;
+    height: 900px;
+    min-height: 760px;
+    max-height: 100svh;
+    background:
+      radial-gradient(ellipse at 78% 70%, rgba(255, 255, 255, .1), transparent 38%),
+      linear-gradient(145deg, #B9072B, var(--red) 65%, #D51C43);
+  }
+
+  .hero-copy {
+    position: absolute;
+    top: 7%;
+    left: var(--gutter);
+    width: min(86%, 430px);
+    margin: 0;
+    padding: 0;
+  }
+
+  .impulso-logo {
+    width: clamp(220px, 62vw, 300px);
+  }
+
+  .hero-copy h1 {
+    max-width: 350px;
+    margin-top: 18px;
+    font-size: clamp(16px, 4.2vw, 19px);
+    line-height: 1.38;
+  }
+
+  .hero-header-image {
+    right: -10%;
+    bottom: 0;
+    width: 112%;
+    height: 57%;
+    object-position: right bottom;
+  }
+
+  .hero-cta {
+    bottom: 24px;
+    left: var(--gutter);
+    min-width: 168px;
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+
+  .intro-grid,
+  .section-heading,
+  .values-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .intro-copy {
+    padding-top: 0;
+  }
+
+  .section-heading {
+    margin-bottom: 34px;
+  }
+
+  .section-aside {
+    max-width: 500px;
+  }
+
+  .stats-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 180px;
+  }
+
+  .project-visual {
+    height: 225px;
+  }
+
+  .values-layout {
+    gap: 42px;
+  }
+
+  .footer-top {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .footer-top p {
+    order: 3;
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+/* 15. Pantallas pequeñas */
+@media (max-width: 390px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .hero-copy h1 {
+    font-size: 16px;
+  }
+
+  .hero-header-image {
+    right: -16%;
+    width: 118%;
+    height: 53%;
+  }
+
+  .hero-cta {
+    bottom: 18px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+}
+
+/* 16. Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .js-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-sweep {
+    clip-path: none;
+  }
+}
