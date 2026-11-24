@@ -3,44 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#cc092f">
-  <meta name="description" content="Impulso Bradesco México: cultura, avances, proyectos, valores y metas que construimos en equipo.">
+  <meta name="theme-color" content="#CC092F">
+  <meta name="description" content="Impulso Bradesco México: un espacio para compartir nuestra cultura, avances y proyectos.">
   <title>Impulso | Bradesco México</title>
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/BradescoSans/WOFF2/BradescoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Impulso, inicio">
-        <span class="brand-symbol" aria-hidden="true">i</span>
-        <span class="brand-copy"><strong>impulso</strong><small>bradesco méxico</small></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
-        <span></span><span></span>
-      </button>
-      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-        <a href="#cultura">Cultura</a>
-        <a href="#avances">Avances</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#valores">Valores</a>
-        <a class="nav-cta" href="#metas">Nuestras metas <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
 
   <main id="contenido">
-    <section class="hero" id="inicio">
-      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-      <div class="container hero-content">
-        <p class="eyebrow light">Una cultura que nos mueve</p>
-        <h1>El futuro se construye<br><em>en equipo.</em></h1>
-        <p class="hero-description">Conoce lo que somos, lo que estamos logrando y todo lo que podemos impulsar juntos en Bradesco México.</p>
-        <a class="button button-light" href="#cultura">Conoce nuestra cultura <span aria-hidden="true">↓</span></a>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-red-panel">
+        <img class="hero-symbol" src="assets/images/BRADESCO_SÍMBOLO-2D_fdo_transparente.png" alt="" aria-hidden="true">
+        <div class="hero-copy">
+          <img class="impulso-logo" src="assets/logos/Recurso%203impulso-bradesco-mexico.svg" alt="Impulso Bradesco México">
+          <h1 id="hero-title">Espacio para texto<br>introductorio</h1>
+        </div>
       </div>
-      <div class="hero-bottom"><span>IMPULSO · BRADESCO MÉXICO</span><span>CRECER · TRANSFORMAR · AVANZAR</span></div>
+
+      <div class="hero-lower-panel" aria-hidden="true">
+        <span class="hero-outline">00</span>
+      </div>
+
+      <img class="hero-person" src="assets/images/Impulso-Persona.png" alt="Colaboradora mirando hacia adelante con expresión optimista">
     </section>
 
     <section class="intro-section section-space" id="cultura">
@@ -85,12 +73,12 @@
     </section>
 
     <section class="goals-section section-space" id="metas">
-      <div class="container goals-inner"><p class="eyebrow">05 / Nuestras metas</p><h2>Tenemos mucho<br>por <em>lograr.</em></h2><p class="lead">Cada meta representa una oportunidad para mejorar, innovar y crecer como equipo.</p><a class="button button-red" href="#contacto">Conoce el rumbo <span aria-hidden="true">↗</span></a><div class="goal-stamp" aria-hidden="true">UN MISMO<br>IMPULSO<span>✳</span></div></div>
+      <div class="container goals-inner"><p class="eyebrow">05 / Nuestras metas</p><h2>Tenemos mucho<br>por <em>lograr.</em></h2><p class="lead">Cada meta representa una oportunidad para mejorar, innovar y crecer como equipo.</p><a class="button button-red" href="#contacto">Conoce el rumbo <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
 
   <footer class="site-footer" id="contacto">
-    <div class="container footer-top"><a class="brand brand-footer" href="#inicio"><span class="brand-symbol">i</span><span class="brand-copy"><strong>impulso</strong><small>bradesco méxico</small></span></a><p>Una cultura que nos mueve.<br>Un equipo que nos impulsa.</p><a class="back-top" href="#inicio">Volver arriba ↑</a></div>
+    <div class="container footer-top"><img class="footer-logo" src="assets/logos/Recurso%203impulso-bradesco-mexico.svg" alt="Impulso Bradesco México"><p>Una cultura que nos mueve.<br>Un equipo que nos impulsa.</p><a class="back-top" href="#inicio">Volver arriba ↑</a></div>
     <div class="container footer-bottom"><span>© <span id="current-year"></span> Impulso · Bradesco México</span><span>Espacio interno de cultura y comunicación</span></div>
   </footer>
 </body>
