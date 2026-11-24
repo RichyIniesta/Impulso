@@ -18,12 +18,10 @@ img{display:block;max-width:100%}
 .hero{height:100svh;min-height:620px;max-height:860px;position:relative;overflow:hidden;background:#f5f4f4;isolation:isolate}
 .hero-red-panel{position:absolute;z-index:0;inset:0 0 29%;background:var(--red)}
 .hero-lower-panel{position:absolute;z-index:0;inset:71% 0 0;background:linear-gradient(180deg,#d5d5d5 0%,#ededed 55%,#fff 100%);overflow:hidden}
-.hero-symbol{position:absolute;z-index:1;width:min(57vw,760px);height:91%;right:2.5%;top:1%;object-fit:contain;object-position:center;filter:drop-shadow(0 8px 24px rgba(255,255,255,.22));pointer-events:none}
-.hero-person{position:absolute;z-index:2;height:96%;width:59%;right:2%;bottom:0;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 28px rgba(25,12,18,.2));pointer-events:none}
+.hero-header-image{position:absolute;z-index:2;height:100%;width:64%;right:0;top:0;object-fit:contain;object-position:right center;filter:drop-shadow(0 14px 28px rgba(25,12,18,.16));pointer-events:none}
 .hero-copy{position:absolute;z-index:3;left:max(calc((100vw - 1330px)/2),6.7vw);top:18%;width:min(400px,35vw);color:#fff}
 .impulso-logo{width:clamp(230px,25vw,350px);height:auto;object-fit:contain;object-position:left center;filter:drop-shadow(0 5px 14px rgba(70,0,15,.12))}
 .hero-copy h1{font:400 clamp(19px,1.7vw,24px)/1.38 var(--font);letter-spacing:-.02em;margin:26px 0 0;padding:0;max-width:370px;color:rgba(255,255,255,.96);border:0}
-.hero-outline{position:absolute;z-index:1;left:6%;top:-.48em;font:800 clamp(340px,43vw,650px)/.8 var(--font);letter-spacing:-.12em;color:transparent;-webkit-text-stroke:clamp(14px,1.9vw,29px) var(--red-accent);white-space:nowrap;opacity:.96;pointer-events:none}
 .section-space{padding-block:110px}
 .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--red-accent);margin:0 0 24px}
 .eyebrow.light{color:rgba(255,255,255,.72)}
@@ -86,8 +84,7 @@ h2 em{font-style:normal;color:var(--red-accent)}
  .hero-copy{left:5%;top:17%;width:38vw}
  .impulso-logo{width:clamp(220px,25vw,300px)}
  .hero-copy h1{font-size:clamp(18px,1.8vw,22px);max-width:330px}
- .hero-person{width:64%;right:-1%;height:94%}
- .hero-symbol{width:62vw;right:-1%;height:90%}
+ .hero-header-image{width:66%;height:100%;right:-1%;object-fit:contain;object-position:right center}
 }
 @media(max-width:760px){
  .hero{height:100svh;min-height:680px;max-height:900px}
@@ -96,8 +93,7 @@ h2 em{font-style:normal;color:var(--red-accent)}
  .hero-copy{left:7%;top:7%;width:86%}
  .impulso-logo{width:clamp(220px,62vw,300px)}
  .hero-copy h1{font-size:18px;line-height:1.32;margin-top:16px;max-width:340px}
- .hero-symbol{width:110vw;height:62%;max-width:none;right:-19%;top:35%;object-fit:contain}
- .hero-person{height:59%;width:100%;right:-5%;bottom:0;object-position:center bottom}
+ .hero-header-image{width:112%;height:62%;max-width:none;right:-18%;top:38%;object-fit:contain;object-position:center bottom}
  .hero-outline{left:-2%;top:-.18em;font-size:76vw;-webkit-text-stroke:13px var(--red-accent)}
  .section-space{padding-block:76px}
  .container{width:calc(100% - 36px)}
@@ -116,8 +112,7 @@ h2 em{font-style:normal;color:var(--red-accent)}
 }
 @media(max-width:390px){
  .hero-copy h1{font-size:16px}
- .hero-person{height:55%;right:-8%}
- .hero-symbol{top:38%}
+ .hero-header-image{height:57%;width:112%;right:-20%;top:43%}
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
