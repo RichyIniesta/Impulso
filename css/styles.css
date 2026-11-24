@@ -1,10 +1,10 @@
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Light.woff2") format("woff2");font-style:normal;font-weight:300;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Medium.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-SemiBold.woff2") format("woff2");font-style:normal;font-weight:600;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
-@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-XBold.woff2") format("woff2");font-style:normal;font-weight:800 900;font-display:swap}
-:root{--red:#CC092F;--red-accent:#D12244;--red-dark:#A90727;--ink:#242329;--muted:#77747a;--paper:#fff;--soft:#f4f3f2;--line:#e8e5e4;--font:"Bradesco Sans",Arial,sans-serif;--container:1160px}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Bradesco Sans";src:url("../assets/fonts/BradescoSans/WOFF2/BradescoSans-XBold.woff2") format("woff2");font-weight:800 900;font-display:swap}
+:root{--red:#CC092F;--red-accent:#D12244;--ink:#242329;--muted:#77747a;--soft:#f4f3f2;--line:#e8e5e4;--font:"Bradesco Sans",Arial,sans-serif;--container:1160px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 body{margin:0;color:var(--ink);font-family:var(--font);line-height:1.6}
@@ -13,14 +13,16 @@ img{display:block;max-width:100%}
 .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
 .skip-link{position:absolute;top:-60px;left:16px;background:#fff;padding:10px;z-index:99}
 .skip-link:focus{top:10px}
-.hero{height:min(840px,100svh);min-height:650px;position:relative;overflow:hidden;background:#f4f3f2;isolation:isolate}
-.hero-red-panel{position:absolute;inset:0 0 32% 0;background:var(--red);overflow:hidden}
-.hero-copy{position:absolute;z-index:3;left:max(calc((100vw - 1330px)/2),6.7vw);top:20%;width:min(390px,35vw);color:#fff}
-.impulso-logo{width:clamp(250px,23vw,360px);height:auto;object-fit:contain;object-position:left center}
-.hero-copy h1{font:400 clamp(22px,2.5vw,36px)/1.2 var(--font);letter-spacing:-.025em;margin:22px 0 0;max-width:360px;color:rgba(255,255,255,.88)}
-.hero-symbol{position:absolute;z-index:1;width:min(58vw,850px);height:auto;right:4.2%;top:2%;filter:drop-shadow(0 0 22px rgba(255,255,255,.3));opacity:.98}
-.hero-person{position:absolute;z-index:2;height:91%;width:58%;right:3%;bottom:0;object-fit:contain;object-position:center bottom}
-.hero-lower-panel{position:absolute;inset:68% 0 0;background:linear-gradient(180deg,#d9d9d9 0%,#f7f7f7 36%,#fff 100%);overflow:hidden}
+
+/* Portada: capas independientes para que el símbolo quede detrás de la fotografía */
+.hero{height:100svh;min-height:620px;max-height:860px;position:relative;overflow:hidden;background:#f4f3f2;isolation:isolate}
+.hero-red-panel{position:absolute;z-index:0;inset:0 0 32%;background:var(--red)}
+.hero-lower-panel{position:absolute;z-index:0;inset:68% 0 0;background:linear-gradient(180deg,#d9d9d9 0%,#f7f7f7 42%,#fff 100%);overflow:hidden}
+.hero-symbol{position:absolute;z-index:1;width:min(55vw,760px);height:94%;right:5%;top:1%;object-fit:contain;object-position:center;filter:drop-shadow(0 0 22px rgba(255,255,255,.28));pointer-events:none}
+.hero-person{position:absolute;z-index:2;height:96%;width:59%;right:2.5%;bottom:0;object-fit:contain;object-position:center bottom;pointer-events:none}
+.hero-copy{position:absolute;z-index:3;left:max(calc((100vw - 1330px)/2),6.7vw);top:19%;width:min(410px,34vw);color:#fff}
+.impulso-logo{width:clamp(245px,22vw,330px);height:auto;object-fit:contain;object-position:left center}
+.hero-copy h1{font:400 clamp(19px,1.8vw,25px)/1.32 var(--font);letter-spacing:-.02em;margin:24px 0 0;max-width:390px;color:rgba(255,255,255,.92)}
 .hero-outline{position:absolute;left:7%;top:-.58em;font:800 clamp(340px,43vw,660px)/.8 var(--font);letter-spacing:-.12em;color:transparent;-webkit-text-stroke:clamp(16px,2.1vw,32px) var(--red-accent);white-space:nowrap;opacity:.96}
 .section-space{padding-block:110px}
 .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--red-accent);margin:0 0 24px}
@@ -80,15 +82,22 @@ h2 em{font-style:normal;color:var(--red-accent)}
 .js-reveal.is-visible{opacity:1;transform:translateY(0)}
 .js-sweep{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.77,0,.18,1)}
 .js-sweep.is-visible{clip-path:inset(0 0 0 0)}
+@media(max-width:1100px) and (min-width:761px){
+ .hero-copy{left:5%;top:18%;width:36vw}
+ .impulso-logo{width:clamp(225px,23vw,290px)}
+ .hero-copy h1{font-size:clamp(18px,1.8vw,22px)}
+ .hero-person{width:62%;right:0}
+ .hero-symbol{width:59vw;right:1%}
+}
 @media(max-width:760px){
- .hero{height:760px;height:100svh;min-height:680px;max-height:900px}
+ .hero{height:100svh;min-height:680px;max-height:900px}
  .hero-red-panel{inset:0 0 25%}
- .hero-copy{left:7%;top:9%;width:78%}
- .impulso-logo{width:clamp(220px,62vw,310px)}
- .hero-copy h1{font-size:22px;margin-top:18px}
- .hero-symbol{width:105vw;max-width:none;right:-18%;top:35%;opacity:.9}
- .hero-person{height:59%;width:100%;right:-5%;bottom:0;object-position:center bottom}
  .hero-lower-panel{inset:75% 0 0}
+ .hero-copy{left:7%;top:7%;width:86%}
+ .impulso-logo{width:clamp(220px,62vw,300px)}
+ .hero-copy h1{font-size:18px;line-height:1.3;margin-top:16px;max-width:340px}
+ .hero-symbol{width:110vw;height:62%;max-width:none;right:-19%;top:35%;object-fit:contain}
+ .hero-person{height:59%;width:100%;right:-5%;bottom:0;object-position:center bottom}
  .hero-outline{left:-2%;top:-.18em;font-size:76vw;-webkit-text-stroke:13px var(--red-accent)}
  .section-space{padding-block:76px}
  .container{width:calc(100% - 36px)}
@@ -106,7 +115,7 @@ h2 em{font-style:normal;color:var(--red-accent)}
  .footer-bottom{gap:12px;flex-direction:column}
 }
 @media(max-width:390px){
- .hero-copy h1{font-size:19px}
+ .hero-copy h1{font-size:16px}
  .hero-person{height:55%;right:-8%}
  .hero-symbol{top:38%}
 }
